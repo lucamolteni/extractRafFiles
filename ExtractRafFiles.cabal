@@ -1,13 +1,13 @@
 name:                ExtractRafFiles
 version:             0.1.0.0
-synopsis:            Simple project template from stack
+synopsis:            Simple script to extract RAW + Jpeg files from subdir
 description:         Please see README.md
-homepage:            http://github.com/githubuser/ExtractRafFiles#readme
+homepage:            https://github.com/lucamolteni/extractRafFiles
 license:             BSD3
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2010 Author Here
+author:              Luca Molteni
+maintainer:          volothamp@gmail.com
+copyright:           2015 Luca Molteni
 category:            Web
 build-type:          Simple
 cabal-version:       >=1.10
@@ -15,7 +15,7 @@ cabal-version:       >=1.10
 executable ExtractRafFiles
   main-is:             Main.hs
   default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5
+  build-depends:       base
                        , turtle
                        , system-filepath
                        , directory
