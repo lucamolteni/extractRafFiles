@@ -16,7 +16,7 @@ args = (,) <$> argPath "sourceDir" "The source directory where to find"
                 <*> argPath "targetDirectory" "The directory to put the files"
 
 copy :: FilePath -> FilePath -> IO ()
-copy fp destinationDir = cp fp (destinationDir </> filename fp)
+copy file destinationDir = cp file (destinationDir </> filename file)
 
 copyAll :: FilePath -> FilePath -> Shell ()
 copyAll source target = do files <- allFiles source
