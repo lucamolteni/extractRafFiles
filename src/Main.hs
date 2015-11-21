@@ -5,11 +5,20 @@ module Main where
 import Turtle
 import Filesystem.Path
 
+
 main :: IO ()
 main = do
-  dir <- view (convertedJpegFiles <|> rafFiles)
+  dir <- view allFiles
+  _ <- sh copyAll
   return ()
 
+
+copyAll = fmap copy allFiles
+
+allFiles = convertedJpegFiles <|> rafFiles
+
+copy :: Turtle.FilePath -> IO ()
+copy fp = cp fp "/Users/luca/Desktop/toronto/"
 
 convertedJpegFiles :: Shell Filesystem.Path.FilePath
 convertedJpegFiles = do raf <- rafFiles
