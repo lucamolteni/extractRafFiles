@@ -1,0 +1,38 @@
+Configuring turtle-1.2.1...
+Building turtle-1.2.1...
+Preprocessing library turtle-1.2.1...
+[1 of 7] Compiling Turtle.Shell     ( src/Turtle/Shell.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.4.0/build/Turtle/Shell.o )
+
+src/Turtle/Shell.hs:73:1: Warning:
+    The import of ‘Applicative’
+    from module ‘Control.Applicative’ is redundant
+
+src/Turtle/Shell.hs:79:1: Warning:
+    The import of ‘Monoid’ from module ‘Data.Monoid’ is redundant
+[2 of 7] Compiling Turtle.Options   ( src/Turtle/Options.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.4.0/build/Turtle/Options.o )
+[3 of 7] Compiling Turtle.Pattern   ( src/Turtle/Pattern.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.4.0/build/Turtle/Pattern.o )
+
+src/Turtle/Pattern.hs:112:1: Warning:
+    The import of ‘Monoid’ from module ‘Data.Monoid’ is redundant
+[4 of 7] Compiling Turtle.Format    ( src/Turtle/Format.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.4.0/build/Turtle/Format.o )
+
+src/Turtle/Format.hs:70:1: Warning:
+    The import of ‘Data.Word’ is redundant
+      except perhaps to import instances from ‘Data.Word’
+    To import instances alone, use: import Data.Word()
+[5 of 7] Compiling Turtle.Prelude   ( src/Turtle/Prelude.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.4.0/build/Turtle/Prelude.o )
+
+src/Turtle/Prelude.hs:202:1: Warning:
+    The import of ‘<*, *>’
+    from module ‘Control.Applicative’ is redundant
+
+src/Turtle/Prelude.hs:218:1: Warning:
+    The import of ‘Data.Traversable’ is redundant
+      except perhaps to import instances from ‘Data.Traversable’
+    To import instances alone, use: import Data.Traversable()
+[6 of 7] Compiling Turtle           ( src/Turtle.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.4.0/build/Turtle.o )
+[7 of 7] Compiling Turtle.Tutorial  ( src/Turtle/Tutorial.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.4.0/build/Turtle/Tutorial.o )
+In-place registering turtle-1.2.1...
+Installing library in
+/Users/luca/.stack/snapshots/x86_64-osx/lts-3.7/7.10.2/lib/x86_64-osx-ghc-7.10.2/turtle-1.2.1-2axDZVV0LtbFcvImb08JAd
+Registering turtle-1.2.1...
