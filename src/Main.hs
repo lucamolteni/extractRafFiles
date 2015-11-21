@@ -7,12 +7,10 @@ import Filesystem.Path
 
 
 main :: IO ()
-main = do
-  _ <- sh copyAll
-  return ()
+main = sh copyAll
 
-
-copyAll = fmap copy allFiles
+copyAll = do files <- allFiles
+             liftIO $ copy files
 
 allFiles = convertedJpegFiles <|> rafFiles
 
