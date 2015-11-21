@@ -5,25 +5,27 @@ module Main where
 import Turtle
 import Filesystem.Path
 
-
 main :: IO ()
-main = sh copyAll
+main = do (source, target)
+            <- options "find all raw + jpeg pairs and copy to target" args
+          sh $ copyAll source target
 
-copyAll = do files <- allFiles
-             liftIO $ copy files
+args :: Parser (Turtle.FilePath, Turtle.FilePath)
+args = (,) <$> argPath "sourceDir" "The source directory where to find"
+                <*> argPath "targetDirectory" "The directory to put the files"
 
-allFiles = convertedJpegFiles <|> rafFiles
+copy :: Turtle.FilePath -> Turtle.FilePath -> IO ()
+copy fp destinationDir = cp fp (destinationDir </> filename fp)
 
-copy :: Turtle.FilePath -> IO ()
-copy fp = cp fp ("/Users/luca/Desktop/toronto" </> filename fp)
+copyAll :: Filesystem.Path.FilePath -> Filesystem.Path.FilePath -> Shell ()
+copyAll source target = do files <- allFiles source
+                           liftIO $ copy files target
 
-convertedJpegFiles :: Shell Filesystem.Path.FilePath
-convertedJpegFiles = do raf <- rafFiles
-                        let jpeg = toJpeg raf
-                        return jpeg
-
-rafFiles :: Shell Turtle.FilePath
-rafFiles = find (suffix "RAF") "/Users/luca/Pictures"
+allFiles :: Filesystem.Path.FilePath -> Shell Filesystem.Path.FilePath
+allFiles source = convertedJpegFiles <|> rafFiles
+                where rafFiles = find (suffix "RAF") source
+                      convertedJpegFiles = fmap toJpeg rafFiles
 
 toJpeg :: Turtle.FilePath -> Turtle.FilePath
-toJpeg fp = addExtension (dropExtension fp) "JPG"
+toJpeg fp = addExtension baseName "JPG"
+            where baseName = dropExtension fp
